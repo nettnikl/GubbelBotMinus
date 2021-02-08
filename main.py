@@ -1,11 +1,10 @@
 import logging
+import os
 import re
 from uuid import uuid4
 
 from telegram import InlineQueryResultArticle, InputTextMessageContent, Update
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler, CallbackContext
-
-from config.secrets import TOKEN
 
 # Enable logging
 logging.basicConfig(
@@ -62,7 +61,7 @@ def inlinequery(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     # Create the Updater and pass it your bot's token.
-    updater = Updater(TOKEN)
+    updater = Updater(os.environ['TELEGRAM_BOT_TOKEN'])
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher

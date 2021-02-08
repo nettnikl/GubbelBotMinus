@@ -1,0 +1,8 @@
+version: "3"
+services:
+  gubbel-bot:
+    build: .
+    container_name: gubbel-bot
+    restart: always
+    environment:
+      TELEGRAM_BOT_TOKEN: "none"
